@@ -29,3 +29,10 @@ yarn-error.log*
 # vercel
 .vercel
 .idea/
+
+# vscode
+.github/copilot-instructions.md
+
+# devbox
+.devbox/
+
