@@ -1,4 +1,4 @@
-@import 'sn-extension-api/dist/sn.min.css';
+@import "sn-extension-api/dist/sn.min.css";
 
 body,
 html {
@@ -12,20 +12,106 @@ html {
   width: 100%;
 }
 
-.main__Default {
-  padding: 20px;
+.editor-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 
-  div {
-    padding: 5px;
+  &.main__Cozy {
+    padding: 10px;
+  }
+
+  &.main__Default {
+    padding: 20px;
+  }
+
+  &.main__Comfortable {
+    padding: 30px;
   }
 }
 
-.main__Comfortable {
-  padding: 30px;
+.editor-controls {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--sn-stylekit-border-color);
+  flex-wrap: wrap;
 
   div {
-    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
+}
+
+.editor-view-toggle {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--sn-stylekit-border-color);
+
+  button {
+    padding: 8px 16px;
+    background-color: var(--sn-stylekit-contrast-background-color);
+    border: 1px solid var(--sn-stylekit-border-color);
+    color: var(--sn-stylekit-foreground-color);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: var(--sn-stylekit-secondary-background-color);
+    }
+
+    &.active {
+      background-color: var(--sn-stylekit-secondary-background-color);
+      border-color: var(--sn-stylekit-foreground-color);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.editor-content-split {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+}
+
+.editor-edit {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.editor-divider {
+  width: 1px;
+  background-color: var(--sn-stylekit-border-color);
+  cursor: col-resize;
+}
+
+.editor-preview {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.editor-content {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 textarea {
@@ -38,10 +124,111 @@ textarea {
   line-height: 1.4;
   resize: none;
   color: var(--sn-stylekit-foreground-color);
+  flex: 1;
+  font-family: "Courier New", monospace;
+  border: none;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.asciidoc-preview {
+  flex: 1;
+  overflow: auto;
+  padding: 10px;
+  line-height: 1.6;
+
+  .admonitionblock {
+    margin: 1.5em 0;
+    border-left: 5px solid;
+    padding: 0.75em 1em;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.02);
+
+    .title {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5em;
+
+      &::before {
+        margin-right: 0.5em;
+      }
+    }
+
+    &.note {
+      border-left-color: #1f6feb;
+      background-color: rgba(31, 111, 235, 0.05);
+
+      .title::before {
+        content: "ℹ️ ";
+      }
+    }
+
+    &.tip {
+      border-left-color: #238636;
+      background-color: rgba(35, 134, 54, 0.05);
+
+      .title::before {
+        content: "💡 ";
+      }
+    }
+
+    &.warning {
+      border-left-color: #d29922;
+      background-color: rgba(210, 153, 34, 0.05);
+
+      .title::before {
+        content: "⚠️ ";
+      }
+    }
+
+    &.caution {
+      border-left-color: #d29922;
+      background-color: rgba(210, 153, 34, 0.05);
+
+      .title::before {
+        content: "⚡ ";
+      }
+    }
+
+    &.important {
+      border-left-color: #da3633;
+      background-color: rgba(218, 54, 51, 0.05);
+
+      .title::before {
+        content: "🔴 ";
+      }
+    }
+  }
 }
 
 button {
   background-color: var(--sn-stylekit-contrast-background-color);
   border: 1px solid var(--sn-stylekit-border-color);
+  color: var(--sn-stylekit-foreground-color);
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: var(--sn-stylekit-secondary-background-color);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+select {
+  background-color: var(--sn-stylekit-contrast-background-color);
+  border: 1px solid var(--sn-stylekit-border-color);
+  color: var(--sn-stylekit-foreground-color);
+  padding: 6px 10px;
+  border-radius: 4px;
   cursor: pointer;
 }
+

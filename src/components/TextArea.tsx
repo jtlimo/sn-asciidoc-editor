@@ -1,18 +1,19 @@
-import React, {useState} from 'react';
-import snApi from "sn-extension-api";
+import React from "react";
 
-const TextArea = () => {
-  const [value, setValue] = useState(snApi.text);
-
-  const onLocalChange = (e) => {
-    setValue(e.target.value);
-    snApi.text = e.target.value;
-  };
-
-  const rows = snApi.meta?.rows;
-  return (
-    <textarea rows={rows || 3} disabled={snApi.locked} value={value} onChange={onLocalChange}></textarea>
-  );
+interface TextAreaProps {
+  value: string;
+  onChange: (value: string) => void;
+  rows?: number;
+  disabled?: boolean;
 }
 
-export default TextArea
+const TextArea = ({ value, onChange, rows = 3, disabled = false }: TextAreaProps) => {
+  const handleChange = (e) => {
+    onChange(e.target.value);
+  };
+
+  return <textarea className="sn-editor" rows={rows} disabled={disabled} value={value} onChange={handleChange} />;
+};
+
+export default TextArea;
+

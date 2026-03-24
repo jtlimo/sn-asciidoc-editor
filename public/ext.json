@@ -1,11 +1,12 @@
 {
-  "identifier": "dev.randombits.template",
-  "name": "Extension Template",
+  "identifier": "dev.jtlimo.editor",
+  "name": "Extension Editor",
   "content_type": "SN|Component",
   "area": "editor-editor",
   "version": "$VERSION$",
-  "description": "A custom editor",
-  "url": "https://nienow.github.io/sn-extension-template/",
-  "download_url": "https://nienow.github.io/sn-extension-template/latest.zip",
-  "latest_url": "https://nienow.github.io/sn-extension-template/ext.json"
+  "description": "A custom editor for asciidoc",
+  "url": "https://jtlimo.github.io/sn-asciidoc-editor/",
+  "download_url": "https://jtlimo.github.io/sn-asciidoc-editor/latest.zip",
+  "latest_url": "https://jtlimo.github.io/sn-asciidoc-editor/ext.json"
 }
+
