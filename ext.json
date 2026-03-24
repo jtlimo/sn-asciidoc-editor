@@ -1,6 +1,6 @@
 {
   "identifier": "dev.jtlimo.editor",
-  "name": "Extension Editor",
+  "name": "Asciidoc Editor",
   "content_type": "SN|Component",
   "area": "editor-editor",
   "version": "1.0.0",
