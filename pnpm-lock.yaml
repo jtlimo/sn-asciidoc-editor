@@ -41,9 +41,6 @@ importers:
       '@preact/compat':
         specifier: ^18.3.1
         version: 18.3.1(preact@10.28.3)
-      '@standardnotes/editor-kit':
-        specifier: ^2.3.1
-        version: 2.3.1
       asciidoctor:
         specifier: ^3.0.4
         version: 3.0.4(chokidar@3.6.0)
@@ -62,9 +59,6 @@ importers:
       preact:
         specifier: ^10.28.3
         version: 10.28.3
-      sn-extension-api:
-        specifier: ^0.4.0
-        version: 0.4.0
     devDependencies:
       '@babel/core':
         specifier: ^7.29.0
@@ -1114,41 +1108,6 @@ packages:
   '@rolldown/pluginutils@1.0.1':
     resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
 
-  '@standardnotes/auth@3.19.4':
-    resolution: {integrity: sha512-JwD8zBupTp8dP7gLehvPlLTRZfukb19JE64SB/dpHri3tnrBnli5v4DpOYoV/ukDXEarCTt+bwZwBMJFLpU1+A==}
-    engines: {node: '>=14.0.0 <17.0.0'}
-
-  '@standardnotes/common@1.52.4':
-    resolution: {integrity: sha512-+Iu8D+FIYMXW0kngJLuD5H6xZ1MzzzDViYkM3bRbnWLUwpzmjQybG+MX55PgzxYrwErOShE/pdy498Qxu1qWbw==}
-    engines: {node: '>=18.0.0 <21.0.0'}
-
-  '@standardnotes/component-relay@https://codeload.github.com/standardnotes/component-relay/tar.gz/839ff5db9bc92db9d42cad8d202ddc4df729597d':
-    resolution: {tarball: https://codeload.github.com/standardnotes/component-relay/tar.gz/839ff5db9bc92db9d42cad8d202ddc4df729597d}
-    version: 2.3.0
-
-  '@standardnotes/editor-kit@2.3.1':
-    resolution: {integrity: sha512-aPsGyMCI2sx3GO7AKozxD6GKnsTwQ0/kdyQ1PKVEGKgI7QNXakTaW8VyK0usDLgXH7ekfxVKNhc4tdw/NxeaIw==}
-
-  '@standardnotes/features@1.54.0':
-    resolution: {integrity: sha512-1esIvFgix59m3/Hd5WjaDRbXvBu9y+x62KPCCkndcXM6T1Dc4obErMIz85UwST8MjMVTB64MVbd6gqCoJ5Qqsg==}
-    engines: {node: '>=16.0.0 <17.0.0'}
-
-  '@standardnotes/models@1.34.3':
-    resolution: {integrity: sha512-KyUQyWBoqEb2W3lTvGJuMcjOUPnz57linc60rvqD+uANQwZnuJlJbTV+5uOckI077ExXgeNU2z198ITozdkLlA==}
-    engines: {node: '>=16.0.0 <17.0.0'}
-
-  '@standardnotes/security@1.17.4':
-    resolution: {integrity: sha512-Wd9KK5EInqHS5MBATRGeTn2qPqPxPPJviS2Kk13Sypugm4NJOBzbvDNuVutyv2ujgh9EWhlPVc2DugJHYzQqgg==}
-    engines: {node: '>=18.0.0 <21.0.0'}
-
-  '@standardnotes/sncrypto-common@1.13.0':
-    resolution: {integrity: sha512-5ut3VRWQRo08k4Jd+2kB+iVkK6xahG+2LPMiC5CUjQ09p85vy2acV/OCGSs2xBDhZeLhW8O79bFA2ce2L99AaQ==}
-    engines: {node: '>=16.0.0 <17.0.0'}
-
-  '@standardnotes/snjs@2.147.2':
-    resolution: {integrity: sha512-YK0iTclSMNoy1fGklmgI37wkM2c77wLBXtQoEgNdijCG8+toW9PdVDFKthsotuWaOL7loFpYxFEvANeNhDR5ig==}
-    engines: {node: '>=16.0.0 <17.0.0'}
-
   '@tsconfig/node10@1.0.12':
     resolution: {integrity: sha512-UCYBaeFvM11aU2y3YPZ//O5Rhj+xKyzy7mvcIoAjASbigy8mHMryP5cK7dgjlz2hWxh1g5pLw084E0a/wlUSFQ==}
 
@@ -1667,9 +1626,6 @@ packages:
   buffer-crc32@0.2.13:
     resolution: {integrity: sha512-VO9Ht/+p3SN7SKWqcrgEzjGbRSJYTx+Q1pTQC0wrWqHx0vpJraQ6GtHx8tvcg1rlK1byhU5gccxgOgj7B0TDkQ==}
 
-  buffer-equal-constant-time@1.0.1:
-    resolution: {integrity: sha512-zRpUiDwd/xk6ADqPMATG8vc9VPrkck7T07OIx0gnjmJAnHnTVXNQG3vfvWNuiZIkwu9KrKdA1iJKfsfTVxE6NA==}
-
   buffer-from@1.1.2:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
 
@@ -2169,9 +2125,6 @@ packages:
 
   duplexer@0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
-
-  ecdsa-sig-formatter@1.0.11:
-    resolution: {integrity: sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ==}
 
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
@@ -2806,28 +2759,8 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  jsonwebtoken@8.5.1:
-    resolution: {integrity: sha512-XjwVfRS6jTMsqYs0EsuJ4LGxXV14zQybNd4L2r0UvbVnSF9Af8x7p5MzbJ90Ioz/9TI41/hTCvznF/loiSzn8w==}
-    engines: {node: '>=4', npm: '>=1.4.28'}
-
-  jsonwebtoken@9.0.3:
-    resolution: {integrity: sha512-MT/xP0CrubFRNLNKvxJ2BYfy53Zkm++5bX9dtuPbqAeQpTVe0MQTFhao8+Cp//EmJp244xt6Drw/GVEGCUj40g==}
-    engines: {node: '>=12', npm: '>=6'}
-
   jstransformer@1.0.0:
     resolution: {integrity: sha512-C9YK3Rf8q6VAPDCCU9fnqo3mAfOH6vUGnMcP4AQAYIEpWtfGLpwOTmZ+igtdK5y+VvI2n3CyYSzy4Qh34eq24A==}
-
-  jwa@1.4.2:
-    resolution: {integrity: sha512-eeH5JO+21J78qMvTIDdBXidBd6nG2kZjg5Ohz/1fpa28Z4CcsWUzJ1ZZyFq/3z3N17aZy+ZuBoHljASbL1WfOw==}
-
-  jwa@2.0.1:
-    resolution: {integrity: sha512-hRF04fqJIP8Abbkq5NKGN0Bbr3JxlQ+qhZufXVr0DvujKy93ZCbXZMHDL4EOtodSbCWxOqR8MS1tXA5hwqCXDg==}
-
-  jws@3.2.3:
-    resolution: {integrity: sha512-byiJ0FLRdLdSVSReO/U4E7RoEyOCKnEnEPMjq3HxWtvzLsV08/i5RQKsFVNkCldrCaPr2vDNAOMsfs8T/Hze7g==}
-
-  jws@4.0.1:
-    resolution: {integrity: sha512-EKI/M/yqPncGUUh44xz0PxSidXFr/+r0pA70+gIYhjv+et7yxM+s29Y+VGDkovRofQem0fs7Uvf4+YmAdyRduA==}
 
   katex@0.18.10:
     resolution: {integrity: sha512-/B6p9eY9DX7aHBfpkHdpirDTZ5QH9xTwL9y837PWuzuv41O5jFdqNQwVQEQsimY0/iVNkwBY4+4hMfhQ7d4Dbw==}
@@ -2957,27 +2890,6 @@ packages:
 
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
-
-  lodash.includes@4.3.0:
-    resolution: {integrity: sha512-W3Bx6mdkRTGtlJISOvVD/lbqjTlPPUDTMnlXZFnVwi9NKJ6tiAk6LVdlhZMm17VZisqhKcgzpO5Wz91PCt5b0w==}
-
-  lodash.isboolean@3.0.3:
-    resolution: {integrity: sha512-Bz5mupy2SVbPHURB98VAcw+aHh4vRV5IPNhILUCsOzRmsTmSQ17jIuqopAentWoehktxGd9e/hbIXq980/1QJg==}
-
-  lodash.isinteger@4.0.4:
-    resolution: {integrity: sha512-DBwtEWN2caHQ9/imiNeEA5ys1JoRtRfY3d7V9wkqtbycnAmTvRRmbHKDV4a0EYc678/dia0jrte4tjYwVBaZUA==}
-
-  lodash.isnumber@3.0.3:
-    resolution: {integrity: sha512-QYqzpfwO3/CWf3XP+Z+tkQsfaLL/EnUlXWVkIk5FUPc4sBdTehEqZONuyRt2P67PXAk+NXmTBcc97zw9t1FQrw==}
-
-  lodash.isplainobject@4.0.6:
-    resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
-
-  lodash.isstring@4.0.1:
-    resolution: {integrity: sha512-0wJxfxH1wgO3GrbuP+dTTk7op+6L41QCXbGINEmD+ny/G/eCqGzxyCsh7159S+mgDDcoarnBw6PC1PS5+wUGgw==}
-
-  lodash.once@4.1.1:
-    resolution: {integrity: sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==}
 
   lodash@4.17.23:
     resolution: {integrity: sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==}
@@ -3456,9 +3368,6 @@ packages:
     resolution: {integrity: sha512-/vxpCXddiX8NGfGO/mTafwjq4aFa/71pvamip0++IQk3zG8cbCj0fifNPrjjF1XMXUne91jL9OoxmdykoEtifQ==}
     engines: {node: '>= 10.13.0'}
 
-  reflect-metadata@0.1.14:
-    resolution: {integrity: sha512-ZhYeb6nRaXCfhnndflDK8qI6ZQ/YcWZCISRAWICW9XYqMUwjZM9Z0DveWX/ABN01oxSHwVxKQmxeYZSsm0jh5A==}
-
   reflect-metadata@0.2.2:
     resolution: {integrity: sha512-urBwgfrvVP/eAyXx4hluJivBKzuEbSQs9rKWCrCkbSxNv8mxPcUZKeuoF3Uy4mJl3Lwprp6yy5/39VWigZ4K6Q==}
 
@@ -3613,10 +3522,6 @@ packages:
     resolution: {integrity: sha512-ftnu3TW4+3eBfLRFnDEkzGxSF/10BJBkaLJuBHZX0kiPS7bRdlpZGu6YGt4KngMkdTwJE6MbjavFpqHvqVt+Ew==}
     engines: {node: '>=18'}
 
-  semver@5.7.2:
-    resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
-    hasBin: true
-
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
@@ -3691,9 +3596,6 @@ packages:
   side-channel@1.1.0:
     resolution: {integrity: sha512-ZX99e6tRweoUXqR+VBrslhda51Nh5MTQwou5tnUDgbtyM0dBgmhEDtWGP/xbKn6hqfPRHujUNwz5fy/wbbhnpw==}
     engines: {node: '>= 0.4'}
-
-  sn-extension-api@0.4.0:
-    resolution: {integrity: sha512-0fO+ak88P194hIXqi+7HJuApZbirWNEW3Dk6L8iAmgiO7v2gAh/Y38QHKO0baM942+LWqLCIX8dajNZlvbP4nQ==}
 
   snapdragon-node@2.1.1:
     resolution: {integrity: sha512-O27l4xaMYt/RSQ5TR3vpWCAB5Kb/czIcqUFOM/C4fYcLnbZUc1PkjTAMjof2pBWaSTwOUd6qUHcFGVGj7aIwnw==}
@@ -5463,49 +5365,6 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.1': {}
 
-  '@standardnotes/auth@3.19.4':
-    dependencies:
-      '@standardnotes/common': 1.52.4
-      jsonwebtoken: 8.5.1
-
-  '@standardnotes/common@1.52.4':
-    dependencies:
-      reflect-metadata: 0.2.2
-
-  '@standardnotes/component-relay@https://codeload.github.com/standardnotes/component-relay/tar.gz/839ff5db9bc92db9d42cad8d202ddc4df729597d':
-    dependencies:
-      '@standardnotes/common': 1.52.4
-      '@standardnotes/features': 1.54.0
-      '@standardnotes/models': 1.34.3
-      '@standardnotes/sncrypto-common': 1.13.0
-      '@standardnotes/snjs': 2.147.2
-
-  '@standardnotes/editor-kit@2.3.1':
-    dependencies:
-      '@standardnotes/component-relay': https://codeload.github.com/standardnotes/component-relay/tar.gz/839ff5db9bc92db9d42cad8d202ddc4df729597d
-      '@standardnotes/models': 1.34.3
-      '@standardnotes/snjs': 2.147.2
-
-  '@standardnotes/features@1.54.0':
-    dependencies:
-      '@standardnotes/auth': 3.19.4
-      '@standardnotes/common': 1.52.4
-      '@standardnotes/security': 1.17.4
-      reflect-metadata: 0.1.14
-
-  '@standardnotes/models@1.34.3': {}
-
-  '@standardnotes/security@1.17.4':
-    dependencies:
-      jsonwebtoken: 9.0.3
-      reflect-metadata: 0.2.2
-
-  '@standardnotes/sncrypto-common@1.13.0':
-    dependencies:
-      reflect-metadata: 0.1.14
-
-  '@standardnotes/snjs@2.147.2': {}
-
   '@tsconfig/node10@1.0.12': {}
 
   '@tsconfig/node12@1.0.11': {}
@@ -6100,8 +5959,6 @@ snapshots:
 
   buffer-crc32@0.2.13: {}
 
-  buffer-equal-constant-time@1.0.1: {}
-
   buffer-from@1.1.2: {}
 
   bundle-name@4.1.0:
@@ -6651,10 +6508,6 @@ snapshots:
       gopd: 1.2.0
 
   duplexer@0.1.2: {}
-
-  ecdsa-sig-formatter@1.0.11:
-    dependencies:
-      safe-buffer: 5.2.1
 
   ee-first@1.1.1: {}
 
@@ -7304,58 +7157,10 @@ snapshots:
 
   json5@2.2.3: {}
 
-  jsonwebtoken@8.5.1:
-    dependencies:
-      jws: 3.2.3
-      lodash.includes: 4.3.0
-      lodash.isboolean: 3.0.3
-      lodash.isinteger: 4.0.4
-      lodash.isnumber: 3.0.3
-      lodash.isplainobject: 4.0.6
-      lodash.isstring: 4.0.1
-      lodash.once: 4.1.1
-      ms: 2.1.3
-      semver: 5.7.2
-
-  jsonwebtoken@9.0.3:
-    dependencies:
-      jws: 4.0.1
-      lodash.includes: 4.3.0
-      lodash.isboolean: 3.0.3
-      lodash.isinteger: 4.0.4
-      lodash.isnumber: 3.0.3
-      lodash.isplainobject: 4.0.6
-      lodash.isstring: 4.0.1
-      lodash.once: 4.1.1
-      ms: 2.1.3
-      semver: 7.7.4
-
   jstransformer@1.0.0:
     dependencies:
       is-promise: 2.2.2
       promise: 7.3.1
-
-  jwa@1.4.2:
-    dependencies:
-      buffer-equal-constant-time: 1.0.1
-      ecdsa-sig-formatter: 1.0.11
-      safe-buffer: 5.2.1
-
-  jwa@2.0.1:
-    dependencies:
-      buffer-equal-constant-time: 1.0.1
-      ecdsa-sig-formatter: 1.0.11
-      safe-buffer: 5.2.1
-
-  jws@3.2.3:
-    dependencies:
-      jwa: 1.4.2
-      safe-buffer: 5.2.1
-
-  jws@4.0.1:
-    dependencies:
-      jwa: 2.0.1
-      safe-buffer: 5.2.1
 
   katex@0.18.10:
     dependencies:
@@ -7472,20 +7277,6 @@ snapshots:
   lodash-es@4.18.1: {}
 
   lodash.debounce@4.0.8: {}
-
-  lodash.includes@4.3.0: {}
-
-  lodash.isboolean@3.0.3: {}
-
-  lodash.isinteger@4.0.4: {}
-
-  lodash.isnumber@3.0.3: {}
-
-  lodash.isplainobject@4.0.6: {}
-
-  lodash.isstring@4.0.1: {}
-
-  lodash.once@4.1.1: {}
 
   lodash@4.17.23: {}
 
@@ -8013,8 +7804,6 @@ snapshots:
     dependencies:
       resolve: 1.22.11
 
-  reflect-metadata@0.1.14: {}
-
   reflect-metadata@0.2.2: {}
 
   regenerate-unicode-properties@10.2.2:
@@ -8166,8 +7955,6 @@ snapshots:
       '@peculiar/x509': 1.14.3
       pkijs: 3.3.3
 
-  semver@5.7.2: {}
-
   semver@6.3.1: {}
 
   semver@7.7.3: {}
@@ -8283,8 +8070,6 @@ snapshots:
       side-channel-list: 1.0.0
       side-channel-map: 1.0.1
       side-channel-weakmap: 1.0.2
-
-  sn-extension-api@0.4.0: {}
 
   snapdragon-node@2.1.1:
     dependencies:

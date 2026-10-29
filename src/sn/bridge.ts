@@ -1,51 +1,53 @@
-import EditorKit from '@standardnotes/editor-kit';
+import { ComponentRelay, RelayNote } from './component-relay';
 
 type Listener<T> = (value: T) => void;
 
+const SAVE_DELAY = 400;
+const APP_DATA_KEY = 'org.standardnotes.sn';
+
+/**
+ * Adapter between the editor UI and the Standard Notes component protocol.
+ *
+ * `registered` resolves when the host accepts the component, so the editor can
+ * mount immediately. `ready` resolves when the first note arrives.
+ */
 export class SNBridge {
+  readonly registered: Promise<void>;
   readonly ready: Promise<void>;
 
-  private kit: EditorKit;
+  private relay: ComponentRelay;
+  private registeredResolve!: () => void;
+  private readyResolve!: () => void;
+  private registeredFlag = false;
+  private readyFlag = false;
+  private note: RelayNote | null = null;
   private noteText = '';
   private previewHtml = '';
   private locked = false;
-  private readyResolve!: () => void;
-  private readyFlag = false;
+  private componentData: Record<string, unknown> = {};
+  private saveTimer: ReturnType<typeof setTimeout> | null = null;
   private textListeners = new Set<Listener<string>>();
   private lockListeners = new Set<Listener<boolean>>();
   private themeListeners = new Set<Listener<void>>();
 
-  constructor() {
+  constructor(targetWindow: Window = window.parent) {
+    this.registered = new Promise((resolve) => {
+      this.registeredResolve = resolve;
+    });
     this.ready = new Promise((resolve) => {
       this.readyResolve = resolve;
     });
 
-    this.kit = new EditorKit(
-      {
-        setEditorRawText: (text) => {
-          this.noteText = text;
-          this.locked = this.readKitLockState();
-          this.emit(this.textListeners, text);
-          this.emit(this.lockListeners, this.locked);
-          this.markReady();
-        },
-        generateCustomPreview: (text) => ({
-          plain: plainPreview(text),
-          html: this.previewHtml || undefined,
-        }),
-        handleRequestForContentHeight: () => undefined,
-        onNoteLockToggle: (locked) => {
-          this.locked = locked;
-          this.emit(this.lockListeners, locked);
-        },
-        onThemesChange: () => this.emit(this.themeListeners, undefined),
+    this.relay = new ComponentRelay({
+      window,
+      targetWindow,
+      onRegistered: ({ componentData }) => {
+        this.componentData = { ...componentData };
+        this.markRegistered();
+        this.relay.streamContextItem((note) => this.handleNote(note));
       },
-      {
-        mode: 'plaintext',
-        coallesedSaving: true,
-        coallesedSavingDelay: 400,
-      },
-    );
+      onThemesChange: () => this.emit(this.themeListeners, undefined),
+    });
   }
 
   get text(): string {
@@ -62,7 +64,15 @@ export class SNBridge {
 
   save(text: string): void {
     this.noteText = text;
-    this.kit.onEditorValueChanged(text);
+
+    if (this.saveTimer) {
+      clearTimeout(this.saveTimer);
+    }
+
+    this.saveTimer = setTimeout(() => {
+      this.saveTimer = null;
+      this.flushSave();
+    }, SAVE_DELAY);
   }
 
   setPreview(html: string): void {
@@ -87,31 +97,58 @@ export class SNBridge {
   }
 
   getComponentDataValueForKey(key: string): unknown {
-    try {
-      return this.kit.getComponentDataValueForKey(key);
-    } catch {
-      return undefined;
-    }
+    return this.componentData[key];
   }
 
   setComponentDataValueForKey(key: string, value: unknown): void {
-    if (!this.readyFlag) {
+    this.componentData = { ...this.componentData, [key]: value };
+    this.relay.setComponentData(this.componentData);
+  }
+
+  destroy(): void {
+    if (this.saveTimer) {
+      clearTimeout(this.saveTimer);
+      this.saveTimer = null;
+    }
+
+    this.relay.destroy();
+  }
+
+  private handleNote(note: RelayNote): void {
+    this.note = note;
+    this.noteText = note.content?.text ?? '';
+    this.locked = note.content?.appData?.[APP_DATA_KEY]?.locked === true;
+
+    this.emit(this.textListeners, this.noteText);
+    this.emit(this.lockListeners, this.locked);
+    this.markReady();
+  }
+
+  private flushSave(): void {
+    if (!this.note) {
       return;
     }
 
-    try {
-      this.kit.setComponentDataValueForKey(key, value);
-    } catch {
-      // Component data is not available until the host registers the component.
-    }
+    const item: RelayNote = {
+      ...this.note,
+      content: {
+        ...this.note.content,
+        text: this.noteText,
+        preview_plain: plainPreview(this.noteText),
+        ...(this.previewHtml ? { preview_html: this.previewHtml } : {}),
+      },
+    };
+
+    this.relay.saveItems([item]);
   }
 
-  private readKitLockState(): boolean {
-    try {
-      return this.kit.getItemAppDataValue('locked' as never) === true;
-    } catch {
-      return false;
+  private markRegistered(): void {
+    if (this.registeredFlag) {
+      return;
     }
+
+    this.registeredFlag = true;
+    this.registeredResolve();
   }
 
   private markReady(): void {
