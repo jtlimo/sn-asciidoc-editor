@@ -1,24 +1,13 @@
-import React from 'react';
-
+import { createRoot } from 'react-dom/client';
+import { AsciiDocEditor } from './editor/AsciiDocEditor';
+import { SNBridge } from './sn/bridge';
 import './index.scss';
-import {createRoot} from "react-dom/client";
-import CustomEditor from "./components/CustomEditor";
-import snApi from "sn-extension-api";
 
-const root = createRoot(document.getElementById('root'));
+const bridge = new SNBridge();
+const container = document.getElementById('root');
 
-export const rerenderRoot = () => {
-  root.render(
-    <React.StrictMode>
-      <CustomEditor/>
-    </React.StrictMode>
-  );
-};
-
-snApi.initialize({
-  debounceSave: 400
-});
-
-snApi.subscribe(() => {
-  rerenderRoot();
-});
+if (container) {
+  void bridge.ready.then(() => {
+    createRoot(container).render(<AsciiDocEditor bridge={bridge} />);
+  });
+}
