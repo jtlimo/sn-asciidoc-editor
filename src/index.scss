@@ -14,6 +14,9 @@ body {
   color: var(--sn-stylekit-foreground-color, #1f2328);
   font-family:
     var(--sn-stylekit-sans-serif-font, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif);
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
 }
 
 .adoc-root {
@@ -39,6 +42,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  height: 100dvh;
   min-height: 0;
   background: var(--adoc-bg);
   color: var(--adoc-text);
@@ -70,11 +74,15 @@ body {
   gap: 4px;
   flex: 0 0 auto;
   padding: 6px 10px;
+  padding-top: max(6px, env(safe-area-inset-top));
+  padding-left: max(10px, env(safe-area-inset-left));
+  padding-right: max(10px, env(safe-area-inset-right));
   border-bottom: 1px solid var(--adoc-border);
   background: var(--adoc-panel);
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
 }
 
 .adoc-toolbar-group {
@@ -407,6 +415,9 @@ body {
   gap: 12px;
   flex: 0 0 auto;
   padding: 3px 12px;
+  padding-bottom: max(3px, env(safe-area-inset-bottom));
+  padding-left: max(12px, env(safe-area-inset-left));
+  padding-right: max(12px, env(safe-area-inset-right));
   border-top: 1px solid var(--adoc-border);
   background: var(--adoc-panel);
   color: var(--adoc-muted);
@@ -1448,6 +1459,26 @@ body {
 
   .adoc-preview {
     padding: 1.25rem 1rem 30vh;
+  }
+}
+
+@media (pointer: coarse) {
+  .adoc-tool {
+    min-width: 36px;
+    height: 36px;
+  }
+
+  .adoc-segment {
+    height: 32px;
+    padding: 0 12px;
+  }
+
+  .adoc-outline-item {
+    padding: 9px 12px;
+  }
+
+  .adoc-preview {
+    -webkit-overflow-scrolling: touch;
   }
 }
 
