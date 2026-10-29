@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksn_asciidoc_editor=self.webpackChunksn_asciidoc_editor||[]).push([[252],{252(e,c,s){s.d(c,{createArchitectureServices:()=>i.S});var i=s(4561);s(508)}}]);
