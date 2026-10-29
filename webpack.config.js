@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const ZipPlugin = require('zip-webpack-plugin');
@@ -13,6 +14,7 @@ module.exports = (env, argv) => ({
   },
   output: {
     filename: "[name].[contenthash].js",
+    publicPath: 'auto',
     clean: true
   },
   externals: {
@@ -21,7 +23,13 @@ module.exports = (env, argv) => ({
   module: {
     rules: [
       {
-        test: /\.(ts|tsx|js|jsx)$/,
+        test: /@asciidoctor[\\/]core[\\/]build[\\/]browser[\\/]index\.js$/,
+        parser: {
+          url: false
+        }
+      },
+      {
+        test: /\.(ts|tsx|js|jsx|mjs|cjs)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -43,7 +51,14 @@ module.exports = (env, argv) => ({
         ],
       },
       {
-        test: /\.(jpg|png|gif|jpeg)$/,
+        test: /\.(woff2?|ttf|otf|eot)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]'
+        }
+      },
+      {
+        test: /\.(jpg|png|gif|jpeg|svg)$/,
         loader: 'url-loader',
       }
     ]
@@ -53,7 +68,16 @@ module.exports = (env, argv) => ({
       'node_modules',
       'src'
     ],
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.mjs', '.cjs', '.json'],
+    conditionNames: ['browser', 'import', 'module', '...'],
+    fallback: {
+      fs: false,
+      'fs/promises': false,
+      path: false,
+      async_hooks: false,
+      module: false,
+      url: false
+    },
     alias: {
       react: "preact/compat",
       'react-dom': "preact/compat",
@@ -69,6 +93,9 @@ module.exports = (env, argv) => ({
     }
   },
   plugins: [
+    new webpack.IgnorePlugin({
+      resourceRegExp: /^node:/
+    }),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./src/index.html",
