@@ -3,7 +3,7 @@
   "name": "Asciidoc Editor",
   "content_type": "SN|Component",
   "area": "editor-editor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A custom editor for asciidoc",
   "url": "https://jtlimo.github.io/sn-asciidoc-editor/",
   "download_url": "https://jtlimo.github.io/sn-asciidoc-editor/latest.zip",
