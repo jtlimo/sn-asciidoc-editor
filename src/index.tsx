@@ -7,7 +7,7 @@ const bridge = new SNBridge();
 const container = document.getElementById('root');
 
 if (container) {
-  void bridge.ready.then(() => {
+  void bridge.registered.then(() => {
     createRoot(container).render(<AsciiDocEditor bridge={bridge} />);
   });
 }
