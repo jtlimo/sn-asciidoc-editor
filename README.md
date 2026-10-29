@@ -29,7 +29,7 @@ Implemented so far:
 ## Architecture
 
 - **CodeMirror 6 is the source of truth.** The note text is the editor document and is saved as plain AsciiDoc; preview and tooling are derived views.
-- **Standard Notes integration** uses `@standardnotes/editor-kit` for note text, save events, and host lifecycle.
+- **Standard Notes integration** uses a small local component relay for note text, save events, and host lifecycle. See [platform compatibility](docs/platform-compatibility.md).
 - **Rendering** uses `@asciidoctor/core` 4.1.1, with 3.0.4 as a fallback. Asciidoctor produces the HTML preview; CodeMirror remains authoritative for the note.
 - **Custom structural scanner** reads AsciiDoc block and inline structure for highlighting, folding, outline, diagnostics, and live-preview updates. It complements Asciidoctor rather than replacing it.
 - **Source mapping** uses a source-mapped HTML5 converter so preview blocks carry `data-srclineno` and clicks jump to the matching source line.
